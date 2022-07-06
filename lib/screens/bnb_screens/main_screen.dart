@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
               color: test2,
               animationCurve: Curves.easeInOutCubic,
               buttonBackgroundColor: test2,
-              backgroundColor: primaryColor,
+              backgroundColor: kDarkPlaceholderText,
               index: cubit.currentIndex,
               onTap: (index) => cubit.changeBottomNav(index),
             ),

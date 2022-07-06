@@ -39,10 +39,12 @@ Widget svgImage(
 
 //
 //
-// Future To(BuildContext context, Widget widget) async {
-//   return await Navigator.of(context)
-//       .push(MaterialPageRoute(builder: (BuildContext context) => widget));
-// }
+
+Future To(BuildContext context, Widget widget) async {
+  return await Navigator.of(context)
+      .push(MaterialPageRoute(builder: (BuildContext context) => widget));
+}
+
 //
 //
 // Future ToAndFinish(BuildContext context, Widget widget) async {

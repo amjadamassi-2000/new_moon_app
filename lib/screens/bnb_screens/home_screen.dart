@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/size_extension.dart';
 import 'package:new_moon_app/components/const.dart';
+import 'package:new_moon_app/data/grid_view_data.dart';
 import 'package:new_moon_app/items/date_item.dart';
 import 'package:new_moon_app/items/home_screen_item.dart';
 
@@ -22,25 +24,25 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 50,),
+            SizedBox(height: 40.h,),
 
 
-            const Text(
+             Text(
               "منازل الشمس و القمر",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 18,
+                fontSize: 18.sp,
                 letterSpacing: 3,
                 fontWeight: FontWeight.bold,
                 fontFamily: "cairo",
               ),
             ),
 
-            SizedBox(height: 30,),
+            SizedBox(height: 20.h,),
 
 
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 10),
+              padding:  EdgeInsets.symmetric(horizontal: 15.w),
 
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,11 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     children: [
                       DateItem(
-                        const Text(
+                         Text(
                           "الأحد  -  3/7/2022",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.bold,
                             fontFamily: "cairo",
                           ),
@@ -60,11 +62,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(height: 10,),
                       DateItem(   //1443
-                        const Text(
+                         Text(
                           " الأحد  -  3/12/1443",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
                             fontFamily: "cairo",
                           ),
@@ -81,11 +83,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text(
+                               Text(
                                 "نجم الإكليل",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: "cairo",
                                 ),
@@ -107,11 +109,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text(
+                               Text(
                                 "نجم الإكليل",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: "cairo",
                                 ),
@@ -131,13 +133,13 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-          SizedBox(height: 30,),
+          SizedBox(height: 15.h,),
 
             GridView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.symmetric(horizontal: 18)
-                    .add(EdgeInsets.only(bottom:20)),
+                    .add(EdgeInsets.only(bottom:0)),
 
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   childAspectRatio: 0.7,
@@ -149,10 +151,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisSpacing: 10,
                 ),
                 // number of items in your list
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return HomeScreenItem();
-                }
+                itemCount: data.length,
+               itemBuilder: (context, index) {
+                return data.map((e) => HomeScreenItem(data[index])).toList()[index];
+              },
             ),
           ],
         ),

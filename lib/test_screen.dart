@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/src/size_extension.dart';
 
 import 'components/const.dart';
 import 'components/global_componnets.dart';
-
-
 
 
 class TestScreen extends StatefulWidget {

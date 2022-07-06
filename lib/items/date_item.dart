@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/size_extension.dart';
 import 'package:new_moon_app/components/const.dart';
 
 
@@ -13,8 +14,8 @@ class DateItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      height: 50,
-      width: 180,
+      height: 45.h,
+      width: 160.w,
       decoration: BoxDecoration(
         color: item,
         borderRadius: BorderRadius.circular(10),
