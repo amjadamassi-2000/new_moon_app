@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:new_moon_app/components/calendar.dart';
 import 'package:new_moon_app/components/const.dart';
 import 'package:new_moon_app/components/global_componnets.dart';
 
-
-
-
 class HomeScreenItem extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -24,11 +21,11 @@ class HomeScreenItem extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-
               children: [
-
-                SizedBox(height: 45,),
-                const    Text(
+                SizedBox(
+                  height: 45,
+                ),
+                const Text(
                   "التقويم",
                   style: TextStyle(
                     color: kLightAccent,
@@ -37,9 +34,9 @@ class HomeScreenItem extends StatelessWidget {
                     fontFamily: "cairo",
                   ),
                 ),
-
-                SizedBox(height: 5,),
-
+                SizedBox(
+                  height: 5,
+                ),
                 const Text(
                   "الهجري",
                   style: TextStyle(
@@ -49,24 +46,28 @@ class HomeScreenItem extends StatelessWidget {
                     fontFamily: "cairo",
                   ),
                 ),
-                SizedBox(height: 10,),
-
-
-                myButton("عرض", (){}),
-
+                SizedBox(
+                  height: 10,
+                ),
+                myButton("عرض", () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (ctx) => MyHomePageCleander()));
+                }),
               ],
             ),
           ),
         ),
-
         Positioned(
           top: 0,
           child: SizedBox(
               height: 90,
-              child: Image.asset("assets/icons/item_icon.png" , width: 90 , )),
+              child: Image.asset(
+                "assets/icons/item_icon.png",
+                width: 90,
+              )),
         ),
-
-
       ],
     );
   }
