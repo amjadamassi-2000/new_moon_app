@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class MyHomePageCleander extends StatefulWidget {
-  MyHomePageCleander({Key key, this.title}) : super(key: key);
-
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -13,8 +11,6 @@ class MyHomePageCleander extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -23,6 +19,7 @@ class _MyHomePageState extends State<MyHomePageCleander> {
   @override
   Widget build(BuildContext context) {
     return SfCalendar(
+      cellBorderColor: Colors.amber,
       view: CalendarView.month,
       monthViewSettings: MonthViewSettings(
           appointmentDisplayMode: MonthAppointmentDisplayMode.appointment),
@@ -41,13 +38,24 @@ List<Appointment> getAppointments() {
   final DateTime endTime = startTime.add(const Duration(hours: 2));
 
   meetings.add(Appointment(
+      color: Colors.green,
+      startTime: DateTime(2022, 7, 23),
+      subject: 'الجوزاء.',
+      isAllDay: false,
+      notes: 'h'));
+  meetings.add(Appointment(
       color: Colors.red,
-      endTime: today,
-      startTime: today,
-      subject: 'الزبانا',
+      startTime: DateTime(2022, 7, 7),
+      subject: 'امجد',
       isAllDay: false,
       notes: 'h'));
 
+  meetings.add(Appointment(
+      color: Colors.blue,
+      startTime: DateTime(2022, 7, 6),
+      subject: 'مهندمرتجىع',
+      isAllDay: false,
+      notes: 'h'));
   return meetings;
 }
 
