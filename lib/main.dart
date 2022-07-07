@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_moon_app/screens/bnb_screens/main_screen.dart';
 import 'package:new_moon_app/screens/calender_screen.dart';
 import 'package:new_moon_app/screens/splash_screen.dart';
+import 'components/calendar.dart';
 import 'cubit/global_cubit.dart';
 import 'cubit/global_states.dart';
 import 'test_screen.dart';
@@ -33,7 +34,7 @@ class _MyAppState extends State<MyApp> {
               builder: (context, state) {
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  home: MainScreen(),
+                  home: SplashScreen(),
                 );
               },
             ));

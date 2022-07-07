@@ -67,11 +67,28 @@ class _TestScreenState extends State<TestScreen> {
             ),
           ),
 
-          Positioned(
-            top: 0,
-            child: SizedBox(
-              height: 90,
-                child: Image.asset("assets/icons/item_icon.png" , width: 90 , )),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Positioned(
+                          top: 0,
+                          child: SizedBox(
+                            height: 90,
+                              child: Image.asset("assets/icons/item_icon.png" , width: 90 , )),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
 
 

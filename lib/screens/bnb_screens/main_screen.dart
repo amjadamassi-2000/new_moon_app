@@ -21,28 +21,32 @@ class _MainScreenState extends State<MainScreen> {
       listener: (context, state) {},
       builder: (context, state) {
         var cubit = GlobalCubit.get(context);
-        return Scaffold(
 
-          body: cubit.screens[cubit.currentIndex],
-          bottomNavigationBar: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(30),
-                  topLeft: Radius.circular(30)),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black54, spreadRadius: 0.5, blurRadius: 0.5),
-              ],
-            ),
-            child: CurvedNavigationBar(
-              items: cubit.bottomItems,
-              height: 50,
-              color: test2,
-              animationCurve: Curves.easeInOutCubic,
-              buttonBackgroundColor: test2,
-              backgroundColor: kDarkPlaceholderText,
-              index: cubit.currentIndex,
-              onTap: (index) => cubit.changeBottomNav(index),
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Scaffold(
+
+            body: cubit.screens[cubit.currentIndex],
+            bottomNavigationBar: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(30)),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black54, spreadRadius: 0.5, blurRadius: 0.5),
+                ],
+              ),
+              child: CurvedNavigationBar(
+                items: cubit.bottomItems,
+                height: 50,
+                color: test2,
+                animationCurve: Curves.easeInOutCubic,
+                buttonBackgroundColor: test2,
+                backgroundColor: kDarkPlaceholderText,
+                index: cubit.currentIndex,
+                onTap: (index) => cubit.changeBottomNav(index),
+              ),
             ),
           ),
         );

@@ -4,14 +4,6 @@ import 'package:syncfusion_flutter_calendar/calendar.dart';
 class MyHomePageCleander extends StatefulWidget {
   MyHomePageCleander({Key key, this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -33,23 +25,48 @@ class _MyHomePageState extends State<MyHomePageCleander> {
   }
 }
 
+
+
+
+
+
 List<Appointment> getAppointments() {
+
   List<Appointment> meetings = <Appointment>[];
+
+
   final DateTime today = DateTime.now();
   final DateTime startTime =
       DateTime(today.year, today.month, today.day, 9, 0, 0);
   final DateTime endTime = startTime.add(const Duration(hours: 2));
 
   meetings.add(Appointment(
-      color: Colors.red,
-      endTime: today,
-      startTime: today,
-      subject: 'الزبانا',
-      isAllDay: false,
-      notes: 'h'));
+    color: Colors.red,
+    startTime: DateTime(2022,7,23),
+    endTime: DateTime(2022,7,23),
+    subject: "الثريا",
+    isAllDay: false,
+  ));
+
+  meetings.add(
+      Appointment(
+    color: Colors.red,
+    startTime: DateTime(2022,7,25),
+    endTime: DateTime(2022,7,25),
+    subject: "الجوزاء  ",
+    isAllDay: false,
+  ));
+
+
+
 
   return meetings;
 }
+
+
+
+
+
 
 class MeetingDataSource extends CalendarDataSource {
   MeetingDataSource(List<Appointment> source) {

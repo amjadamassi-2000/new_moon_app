@@ -12,8 +12,9 @@ class HomeScreenItem extends StatelessWidget {
 
 
   GridViewData gridViewData;
+  Function  func;
 
-  HomeScreenItem(this.gridViewData);
+  HomeScreenItem(this.gridViewData , this.func);
 
 
 
@@ -62,7 +63,7 @@ class HomeScreenItem extends StatelessWidget {
                 SizedBox(height: 10.h,),
 
 
-                myButton("عرض", gridViewData.fun ),
+                myButton("عرض", func),
 
               ],
             ),
