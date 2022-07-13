@@ -10,11 +10,7 @@ import 'package:new_moon_app/screens/drawer_screen/admin_screen.dart';
 
 import '../gregorian_calendar_screen.dart';
 
-
-
-
 class HomeScreen extends StatefulWidget {
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -22,118 +18,110 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-
-    List <Function> fuctions = [
-      (){
-      To(context ,MyHomePageCleander());
-
+    List<Function> fuctions = [
+      () {
+        To(context, MyHomePageCleander());
       },
-          (){
-        To(context ,GregorianCalendarScreen());
-
+      () {
+        To(context, GregorianCalendarScreen());
       },
-
     ];
 
     return Center(
       child: Scaffold(
         backgroundColor: test2,
-         appBar: AppBar(
-           backgroundColor: test2,
-           elevation: 0.0,
-           centerTitle: true,
-           title: Text(
-             "منازل الشمس و القمر",
-             style: TextStyle(
-               color: Colors.white,
-               fontSize: 18.sp,
-               letterSpacing: 3,
-               fontWeight: FontWeight.bold,
-               fontFamily: "cairo",
-             ),
-           ),
-
-         ),
-
-         drawer: Drawer(
-
-            child: Container(
-              color: test2,
-              child: Column(
-                children: [
-
-                  SizedBox(height: 70,),
-
-                  Image.asset("assets/icons/splash_icon.png" , width: 130,),
-                  SizedBox(height: 50,),
-
-                  ListTile(
-                    title:Row(
-                      children: [
-                        Icon(Icons.person , color: Colors.white, size: 30,),
-                        SizedBox(width: 15,),
-                        Text(
-                          "الأدمن",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 17.sp,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "cairo",
-                          ),
-                        ),
-
-                      ],
-                    ),
-                    trailing: Icon(Icons.arrow_forward_ios , color: Colors.white,),
-                    onTap: (){
-                      To(context , AdminScreen());
-
-
-
-                    },
-
-
-                  ),
-                ],
-              ),
+        appBar: AppBar(
+          backgroundColor: test2,
+          elevation: 0.0,
+          centerTitle: true,
+          title: Text(
+            "منازل الشمس و القمر",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18.sp,
+              letterSpacing: 3,
+              fontWeight: FontWeight.bold,
+              fontFamily: "cairo",
             ),
-         ),
-
-
-
-
-        body:  Column(
+          ),
+        ),
+        drawer: Drawer(
+          child: Container(
+            color: test2,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 70,
+                ),
+                Image.asset(
+                  "assets/icons/splash_icon.png",
+                  width: 130,
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                ListTile(
+                  title: Row(
+                    children: [
+                      Icon(
+                        Icons.person,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Text(
+                        "الأدمن",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "cairo",
+                        ),
+                      ),
+                    ],
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                  ),
+                  onTap: () {
+                    To(context, AdminScreen());
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+        body: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 40.h,),
-
-
-
-
-            SizedBox(height: 20.h,),
-
-
+            SizedBox(
+              height: 40.h,
+            ),
+            Text(''),
+            SizedBox(
+              height: 20.h,
+            ),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 15.w),
-
+              padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
-
                   Column(
                     children: [
                       DateItem(
                         Padding(
-                          padding:  EdgeInsets.symmetric(horizontal: 20),
+                          padding: EdgeInsets.symmetric(horizontal: 20),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-
-
-                              Icon(Icons.wb_sunny , color: kDarkPlaceholderText,),
-
+                              Icon(
+                                Icons.wb_sunny,
+                                color: kDarkPlaceholderText,
+                              ),
                               Text(
                                 "نجم الإكليل",
                                 style: TextStyle(
@@ -143,24 +131,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontFamily: "cairo",
                                 ),
                               ),
-
-
                             ],
                           ),
                         ),
                       ),
-
-                      SizedBox(height: 10,),
-
+                      SizedBox(
+                        height: 10,
+                      ),
                       DateItem(
                         Padding(
-                          padding:  EdgeInsets.symmetric(horizontal: 20),
+                          padding: EdgeInsets.symmetric(horizontal: 20),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-
-                                        //Crescent
-                              Icon(Icons.brightness_3_sharp , color: kDarkPlaceholderText,),
+                              //Crescent
+                              Icon(
+                                Icons.brightness_3_sharp,
+                                color: kDarkPlaceholderText,
+                              ),
 
                               Text(
                                 "نجم الإكليل",
@@ -171,16 +159,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontFamily: "cairo",
                                 ),
                               ),
-
-
                             ],
                           ),
                         ),
                       ),
-
                     ],
                   ),
-
                   Column(
                     children: [
                       DateItem(
@@ -194,8 +178,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10,),
-                      DateItem(   //1443
+                      SizedBox(
+                        height: 10,
+                      ),
+                      DateItem(
+                        //1443
                         Text(
                           " الأحد  -  3/12/1443",
                           style: TextStyle(
@@ -211,33 +198,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-
-          SizedBox(height: 15.h,),
-
+            SizedBox(
+              height: 15.h,
+            ),
             GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.symmetric(horizontal: 18)
-                    .add(EdgeInsets.only(bottom:0)),
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.symmetric(horizontal: 18)
+                  .add(EdgeInsets.only(bottom: 0)),
 
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 0.7,
-                  // number of items per row
-                  crossAxisCount: 2,
-                  // vertical spacing between the items
-                  mainAxisSpacing: 2,
-                  // horizontal spacing between the items
-                  crossAxisSpacing: 10,
-                ),
-                // number of items in your list
-                itemCount: data.length,
-               itemBuilder: (context, index) {
-                return data.map((e) => HomeScreenItem(data[index] , fuctions[index])).toList()[index];
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: 0.7,
+                // number of items per row
+                crossAxisCount: 2,
+                // vertical spacing between the items
+                mainAxisSpacing: 2,
+                // horizontal spacing between the items
+                crossAxisSpacing: 10,
+              ),
+              // number of items in your list
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                return data
+                    .map((e) => HomeScreenItem(data[index], fuctions[index]))
+                    .toList()[index];
               },
             ),
           ],
         ),
-
       ),
     );
   }
