@@ -7,6 +7,7 @@ import 'package:new_moon_app/data/grid_view_data.dart';
 import 'package:new_moon_app/items/date_item.dart';
 import 'package:new_moon_app/items/home_screen_item.dart';
 import 'package:new_moon_app/screens/drawer_screen/admin_screen.dart';
+import 'package:new_moon_app/screens/drawer_screen/lock_admin_screen.dart';
 
 import '../gregorian_calendar_screen.dart';
 
@@ -87,7 +88,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.white,
                   ),
                   onTap: () {
-                    To(context, AdminScreen());
+                 //   To(context, LockAdminScreen());
+
+                    DateTime now = new DateTime.now();
+
+                    DateTime lastDayOfMonth =  DateTime(now.year, now.month + 1, 0);
+
+                    print("${lastDayOfMonth.month}/${lastDayOfMonth.day}");
                   },
                 ),
               ],
@@ -99,9 +106,57 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 40.h,
+              height: 30.h,
             ),
-            Text(''),
+
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                children: [
+                  Text(
+                    " الفصل الحالي | ",
+                    style: TextStyle(
+                      color: kDarkPlaceholderText,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "cairo",
+                    ),
+                  ),
+                  Text(
+                    "فصل الصيف",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "cairo",
+                    ),
+                  ),
+                  Spacer(),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 10.w),
+              child: Container(
+                  height: MediaQuery.of(context).size.height * 0.2,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color:kDarkPlaceholderText , width:1.5),
+
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        "assets/images/summer_6.jpg",
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  )),
+            ),
             SizedBox(
               height: 20.h,
             ),

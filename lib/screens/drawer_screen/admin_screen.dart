@@ -42,8 +42,7 @@ class _AdminScreenState extends State<AdminScreen> {
 
                 TextField(
                   keyboardType: TextInputType.multiline,
-                  //  minLines: 1,//Normal textInputField will be displayed
-                  maxLines: 3, // when user presses enter it will adapt to it
+                  maxLines: 3,
                   decoration: InputDecoration(
                     hintText: "اكتب ملاحظة في الصفحة الرئيسية",
                     contentPadding: EdgeInsets.all(12),
@@ -64,8 +63,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 SizedBox(height: 20.h),
                 TextField(
                   keyboardType: TextInputType.multiline,
-                  //  minLines: 1,//Normal textInputField will be displayed
-                  maxLines: 3, // when user presses enter it will adapt to it
+                  maxLines: 3,
                   decoration: InputDecoration(
                     hintText: "اكتب ملاحظة في التقويم الهجري ",
                     contentPadding: EdgeInsets.all(12),
@@ -86,8 +84,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 SizedBox(height: 20.h),
                 TextField(
                   keyboardType: TextInputType.multiline,
-                  //  minLines: 1,//Normal textInputField will be displayed
-                  maxLines: 3, // when user presses enter it will adapt to it
+                  maxLines: 3,
                   decoration: InputDecoration(
                     hintText: "اكتب ملاحظة في التقويم الميلادي",
                     contentPadding: EdgeInsets.all(12),
