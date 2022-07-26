@@ -9,7 +9,7 @@ class NetworkHelper {
   NetworkHelper({this.url});
 
   Future<dynamic> getResponseData() async {
-    http.Response response = await http.get(url);
+    http.Response response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/size_extension.dart';
+import 'package:hijri/hijri_calendar.dart';
+import 'package:intl/date_symbol_data_file.dart';
+import 'package:intl/intl.dart';
 import 'package:new_moon_app/components/calendar.dart';
 import 'package:new_moon_app/components/const.dart';
 import 'package:new_moon_app/components/global_componnets.dart';
 import 'package:new_moon_app/data/grid_view_data.dart';
+import 'package:new_moon_app/items/current_fasl.dart';
 import 'package:new_moon_app/items/date_item.dart';
 import 'package:new_moon_app/items/home_screen_item.dart';
 import 'package:new_moon_app/screens/drawer_screen/admin_screen.dart';
@@ -20,6 +24,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    var now = DateTime.now();
+    var formatter = DateFormat.yMMMd('ar_SA');
+    print(formatter.locale);
+    String formatted = formatter.format(now);
+    DateTime now2 = new DateTime.now();
+    DateTime lastDayOfMonth = new DateTime(now2.year, now2.month, now2.day);
+    print(lastDayOfMonth.month);
+    print(lastDayOfMonth.day);
+
+    HijriCalendar _today = HijriCalendar.now();
+    HijriCalendar.setLocal('ar');
     List<Function> fuctions = [
       () {},
       () {
@@ -87,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.white,
                   ),
                   onTap: () {
-                    //   To(context, LockAdminScreen());
+                    To(context, LockAdminScreen());
 
                     DateTime now = new DateTime.now();
 
@@ -109,53 +124,99 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 30.h,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20.w),
+                height: 100.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 10,
+                      blurRadius: 10,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(20.r),
+                  color: Colors.black,
+                ),
+                child: Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        'اليوم الميلادي الحالي',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                            letterSpacing: 3),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Text(
+                        formatted,
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                          letterSpacing: 3,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20.w),
+                height: 100.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 10,
+                      blurRadius: 10,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(20.r),
+                  color: Colors.black,
+                ),
+                child: Column(
                   children: [
                     Text(
-                      " الفصل الحالي | ",
+                      'اليوم الهجري الحالي',
                       style: TextStyle(
-                        color: kDarkPlaceholderText,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "cairo",
-                      ),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                          letterSpacing: 3),
+                    ),
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Text(
-                      "فصل الصيف",
+                      '${_today.toFormat("MMMM dd yyyy")}',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "cairo",
+                        decoration: TextDecoration.underline,
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                        letterSpacing: 3,
                       ),
                     ),
-                    Spacer(),
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.w),
-                child: Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border:
-                          Border.all(color: kDarkPlaceholderText, width: 1.5),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(5),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          "assets/images/summer_6.jpg",
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    )),
+              SizedBox(
+                height: 30.h,
               ),
+              current_fasl(),
               SizedBox(
                 height: 20.h,
               ),
@@ -278,29 +339,10 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 15.h,
               ),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.symmetric(horizontal: 18)
-                    .add(EdgeInsets.only(bottom: 0)),
-
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 0.7,
-                  // number of items per row
-                  crossAxisCount: 2,
-                  // vertical spacing between the items
-                  mainAxisSpacing: 2,
-                  // horizontal spacing between the items
-                  crossAxisSpacing: 10,
-                ),
-                // number of items in your list
-                itemCount: data.length,
-                itemBuilder: (context, index) {
-                  return data
-                      .map((e) => HomeScreenItem(data[index], fuctions[index]))
-                      .toList()[index];
-                },
-              ),
+              Container(width: 150.w, height: 230, child: HomeScreenItem()),
+              SizedBox(
+                height: 20.h,
+              )
             ],
           ),
         ),

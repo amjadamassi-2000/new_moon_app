@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:new_moon_app/cubit/global_cubit.dart';
 import 'package:new_moon_app/weather/screens/location_screen.dart';
 import 'package:new_moon_app/weather/services/location_info.dart';
 import 'package:new_moon_app/weather/services/weather.dart';
@@ -17,21 +18,26 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Future<bool> _onWillPop() async {
     return (await showDialog(
           context: context,
-          builder: (context) => new AlertDialog(
-            title: new Text('Are you sure?'),
-            content: new Text('Do you want to exit an App'),
-            actions: <Widget>[
-              new FlatButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                child: new Text('No'),
-              ),
-              new FlatButton(
-                onPressed: () =>
-                    SystemChannels.platform.invokeMethod('SystemNavigator.pop'),
-                child: new Text('Yes'),
-              ),
-            ],
-          ),
+          builder: (context) {
+            var cubit = GlobalCubit.get(context);
+
+            return new AlertDialog(
+              title: new Text('Are you sure?'),
+              content: new Text('Do you want to exit an App'),
+              actions: <Widget>[
+                new FlatButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: new Text('No'),
+                ),
+                new FlatButton(
+                  onPressed: () {
+                    cubit.currentIndex = 0;
+                  },
+                  child: new Text('Yes'),
+                ),
+              ],
+            );
+          },
         )) ??
         false;
   }
@@ -97,14 +103,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: _onWillPop,
-      child: Container(
-        child: Center(
-          child: SpinKitRing(
-            color: Colors.white,
-            size: 70.0,
-          ),
+    return Container(
+      child: Center(
+        child: SpinKitRing(
+          color: Colors.white,
+          size: 70.0,
         ),
       ),
     );

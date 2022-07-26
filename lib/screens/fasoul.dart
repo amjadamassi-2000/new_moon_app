@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/size_extension.dart';
 import 'package:new_moon_app/components/const.dart';
+import 'package:new_moon_app/components/fasoul.dart';
+import 'package:new_moon_app/data/fasouldata.dart';
+import 'package:new_moon_app/model/fasoul.dart';
 
 class fasoul extends StatefulWidget {
   @override
@@ -10,6 +13,9 @@ class fasoul extends StatefulWidget {
 class _fasoulState extends State<fasoul> {
   @override
   Widget build(BuildContext context) {
+    final List<Widget> _gridCategories = Fasoul_data.map((category) {
+      return fasoul_item(category);
+    }).toList();
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -29,7 +35,17 @@ class _fasoulState extends State<fasoul> {
             ),
           ),
         ),
-        body: Column(
+        body: ListView.builder(
+            itemCount: Fasoul_data.length,
+            itemBuilder: (context, itemBuilder) {
+              return _gridCategories[itemBuilder];
+            }),
+      ),
+    );
+  }
+}
+/*
+    body: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -103,7 +119,4 @@ class _fasoulState extends State<fasoul> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
+*/

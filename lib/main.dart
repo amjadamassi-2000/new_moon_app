@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_moon_app/provider/dataadmin.dart';
 import 'package:new_moon_app/screens/bnb_screens/main_screen.dart';
@@ -16,10 +19,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   //DatabaseReference _ref = FirebaseDatabase.instance.reference().child('home');
-  // final url = 'https://moonapp-f63aa-default-rtdb.firebaseio.com/product.json';
-  // final uri = Uri.parse(url);
-  // http.post(uri,
-  //     body: json.encode({'id': 1, 'title': 'myTitle', 'body': 'mybody'}));
+  final url =
+      'https://moonapp-f63aa-default-rtdb.firebaseio.com/product/-N7fCYSPhAkZFeZxE7Nw.json';
+  final uri = Uri.parse(url);
+  http.patch(uri,
+      body: json.encode({'id': 15, 'title': 'myTitle', 'body': 'mybody'}));
+  final res2 = await http.get(uri);
+  final result = json.decode(res2.body);
+  print(result.toString());
   // _ref.push().set({'id': 10});
 
   runApp(
@@ -36,9 +43,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
-
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +61,14 @@ class _MyAppState extends State<MyApp> {
               listener: (context, state) {},
               builder: (context, state) {
                 return MaterialApp(
+                  localizationsDelegates: [
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                  ],
+                  supportedLocales: [
+                    //     const Locale('en', 'USA'),
+                    const Locale('ar', 'SA'),
+                  ],
                   debugShowCheckedModeBanner: false,
                   home: SplashScreen(),
                 );

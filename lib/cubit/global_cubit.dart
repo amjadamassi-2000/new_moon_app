@@ -11,6 +11,7 @@ import 'package:new_moon_app/screens/bnb_screens/temperature_screen.dart';
 import 'package:new_moon_app/weather/screens/loading_screen.dart';
 
 import '../components/global_componnets.dart';
+
 import '../screens/bnb_screens/qibla_screen.dart';
 import 'global_states.dart';
 
@@ -50,4 +51,22 @@ class GlobalCubit extends Cubit<GlobalStates> {
     currentIndex = index;
     emit(ChangeBottomNavState());
   }
+
+  // void getHomeData() {
+  //   emit(LoadingHomeState());
+  //   print('hello word');
+
+  //   DioHelper.getData(
+  //     url: HOME,
+  //   ).then((value) {
+  //     print('hello word');
+
+  //     print(value.data.toString());
+
+  //     emit(SucessHomeState());
+  //   }).catchError((error) {
+  //     emit(ErrorHomeState());
+  //     print(error.toString());
+  //   });
+  // }
 }

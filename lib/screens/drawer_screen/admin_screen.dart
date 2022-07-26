@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/size_extension.dart';
 import 'package:new_moon_app/components/const.dart';
+import 'package:http/http.dart' as http;
 
 class AdminScreen extends StatefulWidget {
   @override
@@ -30,16 +33,10 @@ class _AdminScreenState extends State<AdminScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15.w),
-
-
           child: SingleChildScrollView(
-
             child: Column(
               children: [
                 SizedBox(height: 70.h),
-
-
-
                 TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: 3,
@@ -59,13 +56,22 @@ class _AdminScreenState extends State<AdminScreen> {
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(10)),
                   ),
+                  onChanged: (value) {
+                    final url =
+                        'https://moonapp-f63aa-default-rtdb.firebaseio.com/product/-N7fCYSPhAkZFeZxE7Nw.json';
+                    final uri = Uri.parse(url);
+                    http.patch(uri,
+                        body: json.encode({
+                          'title': '${value.toString()}',
+                        }));
+                  },
                 ),
                 SizedBox(height: 20.h),
                 TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: 3,
                   decoration: InputDecoration(
-                    hintText: "اكتب ملاحظة في التقويم الهجري ",
+                    hintText: "اكتب ملاحظة في التقويم ",
                     contentPadding: EdgeInsets.all(12),
                     isDense: true,
                     hintStyle: TextStyle(
@@ -86,7 +92,7 @@ class _AdminScreenState extends State<AdminScreen> {
                   keyboardType: TextInputType.multiline,
                   maxLines: 3,
                   decoration: InputDecoration(
-                    hintText: "اكتب ملاحظة في التقويم الميلادي",
+                    hintText: "اكتب ملاحظة في شاشة من نحنw",
                     contentPadding: EdgeInsets.all(12),
                     isDense: true,
                     hintStyle: TextStyle(

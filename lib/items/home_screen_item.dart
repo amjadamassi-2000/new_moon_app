@@ -1,23 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/size_extension.dart';
 import 'package:new_moon_app/components/calendar.dart';
 import 'package:new_moon_app/components/const.dart';
 import 'package:new_moon_app/components/global_componnets.dart';
 import 'package:new_moon_app/data/grid_view_data.dart';
+import 'package:http/http.dart' as http;
 
+import '../cleandersScreen/mycleanders.dart';
 
+class HomeScreenItem extends StatefulWidget {
+  @override
+  State<HomeScreenItem> createState() => _HomeScreenItemState();
+}
 
-
-class HomeScreenItem extends StatelessWidget {
-
-
-  GridViewData gridViewData;
-  Function  func;
-
-  HomeScreenItem(this.gridViewData , this.func);
-
-
-
+class _HomeScreenItemState extends State<HomeScreenItem> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -35,12 +33,12 @@ class HomeScreenItem extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-
               children: [
-
-                SizedBox(height: 35.h,),
-                    Text(
-                 gridViewData.titleP1,
+                SizedBox(
+                  height: 35.h,
+                ),
+                Text(
+                  "التقويم ",
                   style: TextStyle(
                     color: kLightAccent,
                     fontSize: 19.sp,
@@ -48,11 +46,11 @@ class HomeScreenItem extends StatelessWidget {
                     fontFamily: "cairo",
                   ),
                 ),
-
-                SizedBox(height: 5.h,),
-
-                 Text(
-                  gridViewData.titleP2,
+                SizedBox(
+                  height: 5.h,
+                ),
+                Text(
+                  "وتفاصيل أخرى ",
                   style: TextStyle(
                     color: kLightAccent,
                     fontSize: 19.sp,
@@ -60,24 +58,25 @@ class HomeScreenItem extends StatelessWidget {
                     fontFamily: "cairo",
                   ),
                 ),
-                SizedBox(height: 10.h,),
-
-
-                myButton("عرض", func),
-
+                SizedBox(
+                  height: 10.h,
+                ),
+                myButton("عرض", () async {
+                  To(context, Cleanders());
+                }),
               ],
             ),
           ),
         ),
-
         Positioned(
           top: 0,
           child: SizedBox(
               height: 70.h,
-              child: Image.asset("assets/icons/item_icon.png" , width: 90 , )),
+              child: Image.asset(
+                "assets/icons/item_icon.png",
+                width: 90,
+              )),
         ),
-
-
       ],
     );
   }

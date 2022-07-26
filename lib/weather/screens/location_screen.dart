@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:new_moon_app/cubit/global_cubit.dart';
+import 'package:new_moon_app/items/home_screen_item.dart';
+import 'package:new_moon_app/screens/bnb_screens/main_screen.dart';
 import 'package:new_moon_app/weather/screens/city_screen.dart';
 import 'package:new_moon_app/weather/screens/forecast_screen.dart';
 import 'package:new_moon_app/weather/services/formatted_date_time.dart';
@@ -50,21 +53,34 @@ class _LocationScreenState extends State<LocationScreen> {
   Future<bool> _onWillPop() async {
     return (await showDialog(
           context: context,
-          builder: (context) => new AlertDialog(
-            title: new Text('Are you sure?'),
-            content: new Text('Do you want to exit an App'),
-            actions: <Widget>[
-              new FlatButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                child: new Text('No'),
-              ),
-              new FlatButton(
-                onPressed: () =>
-                    SystemChannels.platform.invokeMethod('SystemNavigator.pop'),
-                child: new Text('Yes'),
-              ),
-            ],
-          ),
+          builder: (context) {
+            var cubit = GlobalCubit.get(context);
+
+            return new AlertDialog(
+              title: new Text('Are you sure?'),
+              content: new Text('Do you want to exit an App'),
+              actions: <Widget>[
+                new FlatButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: new Text('No'),
+                ),
+                new FlatButton(
+                  onPressed: () {
+                    cubit.currentIndex = 0;
+                    return Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return MainScreen();
+                        },
+                      ),
+                    );
+                  },
+                  child: new Text('Yes'),
+                ),
+              ],
+            );
+          },
         )) ??
         false;
   }
