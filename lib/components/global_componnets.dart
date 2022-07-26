@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 //
@@ -272,7 +273,7 @@ Future To(BuildContext context, Widget widget) async {
             color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            fontFamily: "cairo",
+            fontFamily: "almarai",
           ),
         ),
       ),
@@ -341,3 +342,33 @@ Future To(BuildContext context, Widget widget) async {
 //
 //
 //
+
+
+Widget myRowItem(String title , String subTitle) =>
+    Padding(
+      padding: const EdgeInsets.only(bottom: 10  , right: 20 ,),
+      child: Row(
+        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              color: kDarkPlaceholderText,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.bold,
+              fontFamily: "almarai",
+            ),
+          ),
+          SizedBox(width: 20,),
+          Text(
+            subTitle,
+            style: TextStyle(
+              color: Colors.white60,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.bold,
+              fontFamily: "almarai",
+            ),
+          ),
+        ],
+      ),
+    );

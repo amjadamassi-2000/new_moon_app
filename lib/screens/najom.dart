@@ -10,6 +10,8 @@ class najom extends StatefulWidget {
   final Mynajom mynajom;
 
   najom(this.mynajom);
+
+
   @override
   State<najom> createState() => _najomState();
 }

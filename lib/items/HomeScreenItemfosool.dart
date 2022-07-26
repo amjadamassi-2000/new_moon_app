@@ -9,13 +9,14 @@ import 'package:new_moon_app/data/grid_view_data.dart';
 import 'package:http/http.dart' as http;
 
 import '../cleandersScreen/mycleanders.dart';
+import '../screens/fasoul.dart';
 
-class HomeScreenItemCalender extends StatefulWidget {
+class HomeScreenItemFosool extends StatefulWidget {
   @override
-  State<HomeScreenItemCalender> createState() => _HomeScreenItemCalenderState();
+  State<HomeScreenItemFosool> createState() => _HomeScreenItemFosoolState();
 }
 
-class _HomeScreenItemCalenderState extends State<HomeScreenItemCalender> {
+class _HomeScreenItemFosoolState extends State<HomeScreenItemFosool> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -41,7 +42,7 @@ class _HomeScreenItemCalenderState extends State<HomeScreenItemCalender> {
                     height: 35.h,
                   ),
                   Text(
-                    "التقويم ",
+                    "الفُصول",
                     style: TextStyle(
                       color: kLightAccent,
                       fontSize: 18.sp,
@@ -53,7 +54,7 @@ class _HomeScreenItemCalenderState extends State<HomeScreenItemCalender> {
                     height: 5.h,
                   ),
                   Text(
-                    "ميلادي و هجري",
+                    "الأربعة",
                     style: TextStyle(
                       color: kLightAccent,
                       fontSize: 18.sp,
@@ -65,7 +66,7 @@ class _HomeScreenItemCalenderState extends State<HomeScreenItemCalender> {
                     height: 10.h,
                   ),
                   myButton("عرض", () async {
-                    To(context, Cleanders());
+                    To(context, FosoolScreen());
                   }),
                 ],
               ),

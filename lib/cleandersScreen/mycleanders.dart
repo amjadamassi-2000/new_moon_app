@@ -34,10 +34,9 @@ class _CleandersState extends State<Cleanders> {
             "التقويم وتفاصيل أُخرى ",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 18.sp,
-              letterSpacing: 3,
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
-              fontFamily: "cairo",
+              fontFamily: "almarai",
             ),
           ),
         ),
@@ -53,9 +52,13 @@ class _CleandersState extends State<Cleanders> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20.r)),
                   child: TableBasicsExample()),
+
+
               SizedBox(
                 height: 20.h,
               ),
+
+
               Container(
                   margin: EdgeInsets.symmetric(horizontal: 20.w),
                   height: 250.h,

@@ -19,8 +19,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   //DatabaseReference _ref = FirebaseDatabase.instance.reference().child('home');
-  final url =
-      'https://moonapp-f63aa-default-rtdb.firebaseio.com/product/-N7fCYSPhAkZFeZxE7Nw.json';
+  final url = 'https://moonapp-f63aa-default-rtdb.firebaseio.com/product/-N7fCYSPhAkZFeZxE7Nw.json';
   final uri = Uri.parse(url);
   http.patch(uri,
       body: json.encode({'id': 15, 'title': 'myTitle', 'body': 'mybody'}));

@@ -1,21 +1,20 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/size_extension.dart';
-import 'package:new_moon_app/components/calendar.dart';
-import 'package:new_moon_app/components/const.dart';
-import 'package:new_moon_app/components/global_componnets.dart';
-import 'package:new_moon_app/data/grid_view_data.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../cleandersScreen/mycleanders.dart';
+import '../components/const.dart';
+import '../components/global_componnets.dart';
+import '../screens/ekteran_screen.dart';
 
-class HomeScreenItemCalender extends StatefulWidget {
+
+
+class HomeScreenItemEkteran extends StatefulWidget {
+
   @override
-  State<HomeScreenItemCalender> createState() => _HomeScreenItemCalenderState();
+  _HomeScreenItemEkteranState createState() => _HomeScreenItemEkteranState();
 }
 
-class _HomeScreenItemCalenderState extends State<HomeScreenItemCalender> {
+class _HomeScreenItemEkteranState extends State<HomeScreenItemEkteran> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -41,7 +40,7 @@ class _HomeScreenItemCalenderState extends State<HomeScreenItemCalender> {
                     height: 35.h,
                   ),
                   Text(
-                    "التقويم ",
+                    "اقترانات",
                     style: TextStyle(
                       color: kLightAccent,
                       fontSize: 18.sp,
@@ -53,7 +52,7 @@ class _HomeScreenItemCalenderState extends State<HomeScreenItemCalender> {
                     height: 5.h,
                   ),
                   Text(
-                    "ميلادي و هجري",
+                    "القمر و الثريا",
                     style: TextStyle(
                       color: kLightAccent,
                       fontSize: 18.sp,
@@ -65,7 +64,7 @@ class _HomeScreenItemCalenderState extends State<HomeScreenItemCalender> {
                     height: 10.h,
                   ),
                   myButton("عرض", () async {
-                    To(context, Cleanders());
+                    To(context, EcteranScreen());
                   }),
                 ],
               ),

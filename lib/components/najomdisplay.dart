@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_moon_app/components/const.dart';
 import 'package:new_moon_app/data/najomdata.dart';
+import 'package:new_moon_app/items/star_item.dart';
 import 'package:new_moon_app/model/najom.dart';
 import 'package:new_moon_app/screens/najom.dart';
 
@@ -32,28 +33,85 @@ class _NajomGridState extends State<NajomGrid> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: test2,
-        elevation: 0.0,
-        centerTitle: true,
-        title: Text(
-          "النجوم ",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18.sp,
-            letterSpacing: 3,
-            fontWeight: FontWeight.bold,
-            fontFamily: "cairo",
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: test2,
+          elevation: 0.0,
+          centerTitle: true,
+          title: Text(
+            "نجوم فصل الشتاء",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w600,
+              fontFamily: "almarai",
+            ),
           ),
         ),
+        backgroundColor: test2,
+
+
+        body: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+
+            SizedBox(height: 50,),
+
+
+            Text(
+              "يمكث كُل نجم فترة زمنية تُقدر بثلاثة عشر يوم",
+              style: TextStyle(
+                color: Colors.white60,
+                fontSize: 15.sp,
+                fontWeight: FontWeight.w600,
+                fontFamily: "almarai",
+              ),
+            ),
+
+            SizedBox(height: 50,),
+
+
+
+
+
+
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Expanded(
+                child: GridView.builder(
+                   shrinkWrap: true,
+                   physics: NeverScrollableScrollPhysics(),
+                    gridDelegate:
+                    const SliverGridDelegateWithFixedCrossAxisCount(
+                      childAspectRatio: 1,
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 15,
+                    ),
+                    // number of items in your list
+                    itemCount:  mynajom.length,
+                    itemBuilder: (context, index) {
+                      return StarItem(mynajom[index]);
+                    }),
+              ),
+            ),
+          ],
+        ),
+
+
+
+
+
+        // ListView.builder(
+        //     itemCount: mynajom.length,
+        //     itemBuilder: (context, index) {
+        //       return najom(mynajom[index]);
+        //
+        //     }),
       ),
-      backgroundColor: test2,
-      body: ListView.builder(
-          itemCount: mynajom.length,
-          itemBuilder: (context, index) {
-            return najom(mynajom[index]);
-          }),
     );
   }
 }

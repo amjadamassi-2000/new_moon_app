@@ -5,12 +5,12 @@ import 'package:new_moon_app/components/fasoul.dart';
 import 'package:new_moon_app/data/fasouldata.dart';
 import 'package:new_moon_app/model/fasoul.dart';
 
-class fasoul extends StatefulWidget {
+class FosoolScreen extends StatefulWidget {
   @override
-  State<fasoul> createState() => _fasoulState();
+  State<FosoolScreen> createState() => _FosoolScreenState();
 }
 
-class _fasoulState extends State<fasoul> {
+class _FosoolScreenState extends State<FosoolScreen> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> _gridCategories = Fasoul_data.map((category) {
@@ -25,21 +25,53 @@ class _fasoulState extends State<fasoul> {
           elevation: 0.0,
           centerTitle: true,
           title: Text(
-            "الفصول ",
+            "الفُصول الأربعة",
             style: TextStyle(
               color: Colors.white,
               fontSize: 18.sp,
-              letterSpacing: 3,
               fontWeight: FontWeight.bold,
-              fontFamily: "cairo",
+              fontFamily: "almarai",
             ),
           ),
         ),
-        body: ListView.builder(
-            itemCount: Fasoul_data.length,
-            itemBuilder: (context, itemBuilder) {
-              return _gridCategories[itemBuilder];
-            }),
+        body: Column(
+
+
+
+
+          children: [
+
+            Padding(
+              padding: const EdgeInsets.only(right: 20 , top: 20 , bottom: 20),
+              child: Row(
+                children: [
+                  Text(
+                    "* اضغط على الصورة لعرض نجوم كُل فصل",
+                    style: TextStyle(
+                      color: Colors.white60,
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "almarai",
+                    ),
+                  ),
+                  Spacer(),
+                ],
+              ),
+            ),
+
+
+
+
+
+            Expanded(
+              child: ListView.builder(
+                  itemCount: Fasoul_data.length,
+                  itemBuilder: (context, itemBuilder) {
+                    return _gridCategories[itemBuilder];
+                  }),
+            ),
+          ],
+        ),
       ),
     );
   }

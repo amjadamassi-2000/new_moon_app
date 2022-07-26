@@ -13,6 +13,8 @@ import 'package:new_moon_app/items/home_screen_item.dart';
 import 'package:new_moon_app/screens/drawer_screen/admin_screen.dart';
 import 'package:new_moon_app/screens/drawer_screen/lock_admin_screen.dart';
 
+import '../../items/HomeScreenItemfosool.dart';
+import '../../items/HomeScreenItem_ekteran.dart';
 import '../fasoul.dart';
 import '../gregorian_calendar_screen.dart';
 
@@ -54,9 +56,8 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(
               color: Colors.white,
               fontSize: 18.sp,
-              letterSpacing: 3,
               fontWeight: FontWeight.bold,
-              fontFamily: "cairo",
+              fontFamily: "almarai",
             ),
           ),
         ),
@@ -92,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.white,
                           fontSize: 17.sp,
                           fontWeight: FontWeight.bold,
-                          fontFamily: "cairo",
+                          fontFamily: "almarai",
                         ),
                       ),
                     ],
@@ -124,222 +125,242 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 30.h,
               ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.w),
-                height: 100.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 10,
-                      blurRadius: 10,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(20.r),
-                  color: Colors.black,
-                ),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Text(
-                        'اليوم الميلادي الحالي',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22,
-                            letterSpacing: 3),
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Text(
-                        formatted,
-                        style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22,
-                          letterSpacing: 3,
+
+
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 60.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.r),
+                    color: item,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "تاريخ اليوم الميلادي",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.sp,
+                            fontFamily: "almarai",
+
+                          ),
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Text(
+                          formatted,
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.sp,
+                            fontFamily: "almarai",
+
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
+
+
+
               SizedBox(
                 height: 10.h,
               ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.w),
-                height: 100.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 10,
-                      blurRadius: 10,
-                      offset: Offset(0, 3), // changes position of shadow
+
+
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Container(
+                  height: 60.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.r),
+                    color: item,
+                  ),
+
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'تاريخ اليوم الهجري',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.sp,
+                              fontFamily: "almarai"
+
+
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Text(
+                          '${_today.toFormat("MMMM dd yyyy")}',
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.sp,
+                            fontFamily: "almarai"
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                  borderRadius: BorderRadius.circular(20.r),
-                  color: Colors.black,
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      'اليوم الهجري الحالي',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22,
-                          letterSpacing: 3),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Text(
-                      '${_today.toFormat("MMMM dd yyyy")}',
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                        letterSpacing: 3,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
+
+
+
+
               SizedBox(
                 height: 30.h,
               ),
               current_fasl(),
-              SizedBox(
-                height: 20.h,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
-                  children: [
-                    Text(
-                      "  جميع الفصول وموعد كل فصل  | ",
-                      style: TextStyle(
-                        color: kDarkPlaceholderText,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "cairo",
-                      ),
-                    ),
-                    myButton('إضغط هنا ', () {
-                      To(context, fasoul());
-                    }),
-                    Spacer(),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        DateItem(
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Icon(
-                                  Icons.wb_sunny,
-                                  color: kDarkPlaceholderText,
-                                ),
-                                Text(
-                                  "نجم الإكليل",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "cairo",
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        DateItem(
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                //Crescent
-                                Icon(
-                                  Icons.brightness_3_sharp,
-                                  color: kDarkPlaceholderText,
-                                ),
 
-                                Text(
-                                  "نجم الإكليل",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "cairo",
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        DateItem(
-                          Text(
-                            "الأحد  -  3/7/2022",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "cairo",
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        DateItem(
-                          //1443
-                          Text(
-                            " الأحد  -  3/12/1443",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: "cairo",
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+
               SizedBox(
-                height: 15.h,
+                height: 20.h,
               ),
-              Container(width: 150.w, height: 230, child: HomeScreenItem()),
+
+              // Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: 15.w),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       Column(
+              //         children: [
+              //           DateItem(
+              //             Padding(
+              //               padding: EdgeInsets.symmetric(horizontal: 20),
+              //               child: Row(
+              //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //                 children: [
+              //                   Icon(
+              //                     Icons.wb_sunny,
+              //                     color: kDarkPlaceholderText,
+              //                   ),
+              //                   Text(
+              //                     "نجم الإكليل",
+              //                     style: TextStyle(
+              //                       color: Colors.white,
+              //                       fontSize: 16.sp,
+              //                       fontWeight: FontWeight.bold,
+              //                       fontFamily: "cairo",
+              //                     ),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //           ),
+              //           SizedBox(
+              //             height: 10,
+              //           ),
+              //           DateItem(
+              //             Padding(
+              //               padding: EdgeInsets.symmetric(horizontal: 20),
+              //               child: Row(
+              //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //                 children: [
+              //                   //Crescent
+              //                   Icon(
+              //                     Icons.brightness_3_sharp,
+              //                     color: kDarkPlaceholderText,
+              //                   ),
+              //
+              //                   Text(
+              //                     "نجم الإكليل",
+              //                     style: TextStyle(
+              //                       color: Colors.white,
+              //                       fontSize: 16.sp,
+              //                       fontWeight: FontWeight.bold,
+              //                       fontFamily: "cairo",
+              //                     ),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //       // Column(
+              //       //   children: [
+              //       //     DateItem(
+              //       //       Text(
+              //       //         "الأحد  -  3/7/2022",
+              //       //         style: TextStyle(
+              //       //           color: Colors.white,
+              //       //           fontSize: 16.sp,
+              //       //           fontWeight: FontWeight.bold,
+              //       //           fontFamily: "cairo",
+              //       //         ),
+              //       //       ),
+              //       //     ),
+              //       //     SizedBox(
+              //       //       height: 10,
+              //       //     ),
+              //       //     DateItem(
+              //       //       //1443
+              //       //       Text(
+              //       //         " الأحد  -  3/12/1443",
+              //       //         style: TextStyle(
+              //       //           color: Colors.white,
+              //       //           fontSize: 16.sp,
+              //       //           fontWeight: FontWeight.w600,
+              //       //           fontFamily: "cairo",
+              //       //         ),
+              //       //       ),
+              //       //     ),
+              //       //   ],
+              //       // ),
+              //     ],
+              //   ),
+              // ),
+
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                      children: [
+                        Container(width: 150.w, height: 280,
+                            child: HomeScreenItemCalender(),),
+
+
+                        Container(
+                            width: 150.w, height: 280,
+                            child: HomeScreenItemFosool()),
+                      ],
+                    ),
+                  ),
+
+                  Container(
+                      width: 150.w, height: 280,
+                      child: HomeScreenItemEkteran()),
+                ],
+              ),
+
+
+
+
+
+
               SizedBox(
                 height: 20.h,
               )

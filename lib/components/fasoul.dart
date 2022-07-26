@@ -38,32 +38,43 @@ class _fasoul_itemState extends State<fasoul_item> {
                 height: 30.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: EdgeInsets.symmetric(horizontal: 15).add(EdgeInsets.only(bottom: 10)),
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.amber),
                   child: Row(
                     children: [
-                      Text(
-                        " الفصل  | ",
-                        style: TextStyle(
-                          color: kDarkPlaceholderText,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "cairo",
+                      Expanded(
+                        child: Divider(
+                          color: Colors.grey,
+                          thickness: 1,
+                          indent: 20,
                         ),
                       ),
-                      Text(
-                        '${widget.myfasoul.name}',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "cairo",
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child:  Text(
+                          " فصل  ${widget.myfasoul.name}",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "almarai",
+                          ),
                         ),
                       ),
-                      Spacer(),
+                      Expanded(
+                        child: Divider(
+                          color: Colors.grey,
+                          thickness: 1,
+                          endIndent: 20,
+                        ),
+                      ),
                     ],
                   ),
+
+
+
+
+
                 ),
               ),
               Padding(
@@ -88,95 +99,99 @@ class _fasoul_itemState extends State<fasoul_item> {
                     )),
               ),
               SizedBox(
-                height: 20.h,
+                height: 15.h,
               ),
-              Row(
-                children: [
-                  Text(
-                    " بداية الفصل   ",
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "cairo",
+
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10).add(EdgeInsets.only(bottom: 10)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "بداية الفصل",
+                      style: TextStyle(
+                        color: kLightAccent,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "almarai",
+                      ),
                     ),
-                  ),
-                  Spacer(),
-                  Container(
-                    margin: EdgeInsets.only(left: 20, right: 20),
-                    child: Text(
+                    Text(
                       "${widget.myfasoul.date}  ",
                       style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.white60,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
-                        fontFamily: "cairo",
+                        fontFamily: "almarai",
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              Row(
-                children: [
-                  Text(
-                    "عدد النجوم ",
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "cairo",
+
+
+
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10).add(EdgeInsets.only(bottom: 10)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                  children: [
+                    Text(
+                      "عدد النجوم",
+                      style: TextStyle(
+                        color: kLightAccent,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "almarai",
+                      ),
                     ),
-                  ),
-                  Spacer(),
-                  Container(
-                    margin: EdgeInsets.only(left: 20, right: 20),
-                    child: Text(
+                    Text(
                       "${widget.myfasoul.najom}  ",
                       style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.white60,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
-                        fontFamily: "cairo",
+                        fontFamily: "almarai",
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              Row(
-                children: [
-                  Text(
-                    "عدد الأيام ",
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "cairo",
+
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10).add(EdgeInsets.only(bottom: 10)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                  children: [
+                    Text(
+                      "عدد الأيام",
+                      style: TextStyle(
+                        color: kLightAccent,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "almarai",
+                      ),
                     ),
-                  ),
-                  Spacer(),
-                  Container(
-                    margin: EdgeInsets.only(left: 20, right: 20),
-                    child: Text(
+                    Text(
                       "${widget.myfasoul.days}  ",
                       style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.white60,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
-                        fontFamily: "cairo",
+                        fontFamily: "almarai",
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              SizedBox(
-                height: 20.h,
-              ),
-              Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20),
-                  width: double.infinity,
-                  child:
-                      myButton('اضغط على الصورة لمشاهدة نجوم الفصل ', () {})),
-            ]),
+
+            ],
+        ),
       ),
     );
   }
