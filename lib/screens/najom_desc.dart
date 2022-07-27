@@ -58,22 +58,23 @@ class _najomDescState extends State<najomDesc> {
           padding: EdgeInsets.only(top: 20.h, left: 10.w, right: 10.w),
           child: SingleChildScrollView(
             child: Column(children: [
-              Material(
-                elevation: 5,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: primaryColor, width: 1.5),
-                    borderRadius: BorderRadius.circular(10),
-                    color: item,
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: primaryColor, width: 1.5),
+                  borderRadius: BorderRadius.circular(10),
+                  color: item,
+                ),
+                padding:
+                    EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
+                width: double.infinity,
+                child: Text(
+                  '${mynajomDesc.Desc}',
+                  style: TextStyle(
+                      color: Colors.white,
+                    fontSize: 18.sp,
+                    wordSpacing: 2,
                   ),
-                  padding:
-                      EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
-                  width: double.infinity,
-                  child: Text(
-                    '${mynajomDesc.Desc}',
-                    style: TextStyle(
-                        color: Colors.white, fontSize: 20, wordSpacing: 2),
-                  ),
+
                 ),
               )
             ]),

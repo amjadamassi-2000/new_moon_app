@@ -128,6 +128,47 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
 
+
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 10),
+                child: Container(
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.r),
+                   border: Border.all(width: 1 , color: Colors.grey),
+                   // color: item,
+                  ),
+
+                  child:  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Text(
+                      'يرصد بسماء الوطن العربي قبل شروق الشمس، الثلاثاء، هلال القمر قرب "عنقود نجوم الثريا" الذي يعرف أيضاً بتسمية "الشقيقات السبع"، بسبب ألمع سبعة نجوم في هذا العنقود.',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(
+                        height: 1.5,
+                          color: Colors.white70,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12.sp,
+                          wordSpacing: 2,
+                          fontFamily: "almarai",
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+
+
+              SizedBox(
+                height: 10.h,
+              ),
+
+
+
+
+
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Container(
@@ -143,6 +184,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+
+
+
+
+
+
                         Text(
                           "تاريخ اليوم الميلادي",
                           style: TextStyle(
@@ -230,6 +277,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 30.h,
               ),
+
               current_fasl(),
 
 
