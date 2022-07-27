@@ -39,7 +39,20 @@ class _najomDescState extends State<najomDesc> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: test2,
+          elevation: 0.0,
+          centerTitle: true,
+          title: Text(
+            "تعريف النجم",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18.sp,
+              fontWeight: FontWeight.bold,
+              fontFamily: "almarai",
+            ),
+          ),
+        ),
         backgroundColor: test2,
         body: Padding(
           padding: EdgeInsets.only(top: 20.h, left: 10.w, right: 10.w),
@@ -48,17 +61,14 @@ class _najomDescState extends State<najomDesc> {
               Material(
                 elevation: 5,
                 child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: primaryColor, width: 1.5),
+                    borderRadius: BorderRadius.circular(10),
+                    color: item,
+                  ),
                   padding:
                       EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
                   width: double.infinity,
-                  decoration: BoxDecoration(boxShadow: [
-                    BoxShadow(
-                      color: Colors.blue,
-                      blurRadius: 8,
-                      spreadRadius: 4,
-                      offset: Offset(0, 10),
-                    ),
-                  ], color: Colors.black),
                   child: Text(
                     '${mynajomDesc.Desc}',
                     style: TextStyle(

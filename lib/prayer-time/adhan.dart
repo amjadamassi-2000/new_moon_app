@@ -92,6 +92,10 @@ class _TimesPageState extends State<TimesPage> {
 
   @override
   Widget build(BuildContext context) {
+    var now = DateTime.now();
+    var formatter = DateFormat.yMMMd('ar_SA');
+    print(formatter.locale);
+    String formatted = formatter.format(now);
     return Scaffold(
         body: Container(
       padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 10.0),
@@ -144,10 +148,7 @@ class _TimesPageState extends State<TimesPage> {
                 color: Colors.white,
                 size: 15,
               ),
-              title: DateTime.now().day.toString() +
-                      ',' +
-                      DateTime.now().month.toString() ??
-                  "",
+              title: formatted ?? "",
               subTitle: "Today's Date"),
           SizedBox(
             height: 10,

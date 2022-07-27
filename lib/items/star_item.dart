@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:new_moon_app/components/global_componnets.dart';
+import 'package:new_moon_app/screens/najom_desc.dart';
 
 import '../components/const.dart';
 import '../model/najom.dart';
 
-
 class StarItem extends StatefulWidget {
-
   final Mynajom mynajom;
 
   StarItem(this.mynajom);
-
 
   @override
   _StarItemState createState() => _StarItemState();
@@ -19,8 +18,11 @@ class StarItem extends StatefulWidget {
 class _StarItemState extends State<StarItem> {
   @override
   Widget build(BuildContext context) {
-    return
-       Container(
+    return InkWell(
+      onTap: () {
+        To(context, najomDesc(widget.mynajom));
+      },
+      child: Container(
         height: 100,
         width: 100,
         alignment: Alignment.center,
@@ -29,7 +31,6 @@ class _StarItemState extends State<StarItem> {
           borderRadius: BorderRadius.circular(10),
           color: item,
         ),
-
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -42,7 +43,9 @@ class _StarItemState extends State<StarItem> {
                 fontFamily: "almarai",
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Text(
               "18 - أكتوبر",
               style: TextStyle(
@@ -54,6 +57,7 @@ class _StarItemState extends State<StarItem> {
             ),
           ],
         ),
+      ),
     );
   }
 }
