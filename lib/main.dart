@@ -1,8 +1,8 @@
 import 'dart:convert';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_moon_app/provider/dataadmin.dart';
 import 'package:new_moon_app/screens/bnb_screens/main_screen.dart';
@@ -60,13 +60,20 @@ class _MyAppState extends State<MyApp> {
               listener: (context, state) {},
               builder: (context, state) {
                 return MaterialApp(
+                  locale: Locale("ar"),
                   localizationsDelegates: [
                     GlobalMaterialLocalizations.delegate,
                     GlobalWidgetsLocalizations.delegate,
                   ],
+
+                  // localizationsDelegates: [
+                  //   GlobalMaterialLocalizations.delegate,
+                  //   GlobalWidgetsLocalizations.delegate,
+                  // ],
+
                   supportedLocales: [
                     //     const Locale('en', 'USA'),
-                    const Locale('ar', 'SA'),
+                    const Locale('ar',),
                   ],
                   debugShowCheckedModeBanner: false,
                   home: SplashScreen(),

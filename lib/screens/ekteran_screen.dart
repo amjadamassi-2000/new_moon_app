@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../components/const.dart';
 import '../components/global_componnets.dart';
+import '../data/ekteran_data.dart';
 import '../items/ekteran_item.dart';
 
 
@@ -40,7 +41,9 @@ class _EcteranScreenState extends State<EcteranScreen> {
         
 
         body:SingleChildScrollView(
+          physics: ScrollPhysics(),
           child: Column(
+
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(height: 30,),
@@ -78,20 +81,14 @@ class _EcteranScreenState extends State<EcteranScreen> {
 
               Padding(
                 padding: const EdgeInsets.only(top: 30 , bottom: 10),
-                child: Expanded(
-                  child: ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: 12,
-                    itemBuilder: (context , index){
-                      return  EkteranItem(
-                        "يناير",
-                        "11 - يناير",
-                        "الشتاء",
+                child: ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: ekteranData.length,
+                  itemBuilder: (context , index){
+                    return ekteranData[index];
 
-                      );
-                    }
-                  ),
+                  }
                 ),
               ),
             ],

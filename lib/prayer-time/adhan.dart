@@ -1,10 +1,13 @@
 import 'package:adhan/adhan.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:location/location.dart';
 import 'package:new_moon_app/prayer-time/components/icon_text.dart';
 import 'package:new_moon_app/prayer-time/components/waktuSalat.dart';
 import 'package:new_moon_app/prayer-time/utils/constants.dart';
+
+import '../components/const.dart';
 
 class TimesPage extends StatefulWidget {
   final dynamic timesData;
@@ -97,59 +100,93 @@ class _TimesPageState extends State<TimesPage> {
     print(formatter.locale);
     String formatted = formatter.format(now);
     return Scaffold(
+       backgroundColor: test2,
+
         body: Container(
       padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 10.0),
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [color1, color2])),
+      // decoration: BoxDecoration(
+      //     gradient: LinearGradient(
+      //         begin: Alignment.topRight,
+      //         end: Alignment.bottomLeft,
+      //         colors: [test2, item]
+      //     ),
+      // ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/');
-                },
-                child: Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
+              Padding(
+                padding: const EdgeInsets.only(top: 10 , right: 10),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/');
+                  },
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-              Icon(Icons.menu, color: Colors.white)
+             // Icon(Icons.menu, color: Colors.white)
             ],
           ),
           SizedBox(
             height: 30,
           ),
           Text(
-            "Prayer Alarms",
-            style: TextStyle(color: Colors.white, fontSize: 25),
-          ),
-          Text(
-            "Prayer becomes timely",
-            style: TextStyle(color: Colors.white, fontSize: 15),
-          ),
-          SizedBox(
-            height: 25,
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          IconText(
-              icon: Icon(
-                Icons.calendar_today,
+            "مواقيت الصلاة",
+            style: TextStyle(
                 color: Colors.white,
-                size: 15,
+                fontWeight: FontWeight.w600,
+                fontSize: 25,
+              fontFamily: "almarai",
+
+            ),
+          ),
+          // Text(
+          //   "Prayer becomes timely",
+          //   style: TextStyle(
+          //       color: Colors.white,
+          //       fontSize: 15,
+          //
+          //   ),
+          // ),
+          SizedBox(
+            height: 80,
+          ),
+
+          ListTile(
+            contentPadding: EdgeInsets.only(right: 0),
+            leading: Icon(Icons.calendar_today , color: Colors.white,size: 20,),
+            title:   Text(
+              formatted ?? "",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12,
+                      fontFamily: "almarai",
+
+                    ),
+                  ),
+            subtitle:  Text(
+              "تاريخ اليوم",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.normal,
+                fontSize: 12,
+                fontFamily: "almarai",
+
               ),
-              title: formatted ?? "",
-              subTitle: "Today's Date"),
+            ),
+          ),
+
+
+
+
+
+
           SizedBox(
             height: 10,
           ),
@@ -159,35 +196,35 @@ class _TimesPageState extends State<TimesPage> {
               child: ListView(
                 children: <Widget>[
                   WaktuSalat(
-                    name: "Fajr",
+                    name: "الفجر",
                     time: fajer ?? "",
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   WaktuSalat(
-                    name: "Duhur",
+                    name: "الظهر",
                     time: Duhur ?? "",
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   WaktuSalat(
-                    name: "Asr",
+                    name: "العصر",
                     time: Asr ?? "",
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   WaktuSalat(
-                    name: "Maghrib",
+                    name: "المغرب",
                     time: Maghrib ?? "",
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   WaktuSalat(
-                    name: "Isha",
+                    name: "العشاء",
                     time: Isha ?? "",
                   )
                 ],
