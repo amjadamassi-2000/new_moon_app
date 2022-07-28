@@ -16,7 +16,7 @@ import 'components/calendar.dart';
 import 'cubit/global_cubit.dart';
 import 'cubit/global_states.dart';
 import 'test_screen.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as https;
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
       final url =
           'https://moonapp-f63aa-default-rtdb.firebaseio.com/product/-N7fCYSPhAkZFeZxE7Nw.json';
       final uri = Uri.parse(url);
-      final response = await http.get(uri);
+      final response = await https.get(uri);
       if (response.statusCode == 200) {
         final res = DataHttp.fromJson(jsonDecode(response.body));
         print('${res.title} ');
@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
       final url2 =
           'https://moonapp-f63aa-default-rtdb.firebaseio.com/product/-N7fDNmSLr9dbubGmZiP.json';
       final uri2 = Uri.parse(url2);
-      final response2 = await http.get(uri2);
+      final response2 = await https.get(uri2);
       if (response2.statusCode == 200) {
         final res2 = DataHttp.fromJson(jsonDecode(response2.body));
         print('${res2.title} ');

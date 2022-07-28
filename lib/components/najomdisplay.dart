@@ -54,7 +54,6 @@ class _NajomGridState extends State<NajomGrid> {
         backgroundColor: test2,
 
         body: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
               height: 50,
@@ -72,13 +71,14 @@ class _NajomGridState extends State<NajomGrid> {
               height: 50,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Expanded(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Container(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.6,
                 child: GridView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    scrollDirection: Axis.vertical,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       childAspectRatio: 1,
                       crossAxisCount: 3,
                       mainAxisSpacing: 20,
