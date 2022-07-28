@@ -2,34 +2,56 @@ import 'package:new_moon_app/model/desc_najom.dart';
 import 'package:new_moon_app/model/najom.dart';
 
 final najom_data = [
-  Mynajom('الاكليل', '16/7', 'assets/images/summer_6.jpg', 2, 13, 1),
-  Mynajom('القلب', '15/11', 'assets/images/summer_1.jpg', 2, 13, 2),
-  Mynajom('الشولة', '15/11', 'assets/images/summer_1.jpg', 2, 13, 3),
-  Mynajom('النعائم', '15/11', 'assets/images/summer_1.jpg', 2, 13, 4),
-  Mynajom('البلدة', '15/11', 'assets/images/summer_1.jpg', 2, 13, 5),
-  Mynajom('سعد الذابح', '15/11', 'assets/images/summer_1.jpg', 2, 13, 6),
-  Mynajom('سعد بلع', '15/11', 'assets/images/summer_1.jpg', 2, 13, 7),
-  Mynajom('سعد السعود', '15/11', 'assets/images/summer_1.jpg', 4, 13, 8),
-  Mynajom('سعد الأخبية', '15/11', 'assets/images/summer_1.jpg', 4, 13, 9),
-  Mynajom('المقدم', '15/11', 'assets/images/summer_1.jpg', 4, 13, 10),
-  Mynajom('المؤخر', '15/11', 'assets/images/summer_1.jpg', 4, 13, 11),
-  Mynajom('الرشاء', '15/11', 'assets/images/summer_1.jpg', 4, 13, 12),
-  Mynajom('الشريطين', '15/11', 'assets/images/summer_1.jpg', 4, 13, 13),
-  Mynajom('البطين', '15/11', 'assets/images/summer_1.jpg', 4, 13, 14),
-  Mynajom('الثريا', '15/11', 'assets/images/summer_1.jpg', 1, 13, 15),
-  Mynajom('الدبران', '15/11', 'assets/images/summer_1.jpg', 1, 13, 16),
-  Mynajom('الهقعة', '15/11', 'assets/images/summer_1.jpg', 1, 13, 17),
-  Mynajom('الهنعة', '15/11', 'assets/images/summer_1.jpg', 1, 13, 18),
-  Mynajom('الذراع', '15/11', 'assets/images/summer_1.jpg', 1, 13, 19),
-  Mynajom('النثرة', '15/11', 'assets/images/summer_1.jpg', 1, 13, 20),
-  Mynajom('الطرفة', '15/11', 'assets/images/summer_1.jpg', 1, 13, 21),
-  Mynajom('الجبهة', '15/11', 'assets/images/summer_1.jpg', 4, 13, 22),
-  Mynajom('الزبرة', '15/11', 'assets/images/summer_1.jpg', 3, 13, 23),
-  Mynajom('الصرفة', '15/11', 'assets/images/summer_1.jpg', 3, 13, 24),
-  Mynajom('العواء', '15/11', 'assets/images/summer_1.jpg', 3, 13, 25),
-  Mynajom('السماك', '15/11', 'assets/images/summer_1.jpg', 3, 13, 26),
-  Mynajom('الغفرة', '15/11', 'assets/images/summer_1.jpg', 3, 13, 27),
-  Mynajom('الزبانا', '15/11', 'assets/images/summer_1.jpg', 3, 13, 28),
+  Mynajom('الاكليل', '٧ - ١٩ ديسمبر', 'assets/images/summer_6.jpg', 2, 13, 1),
+  Mynajom(
+      'القلب', '٢٠ ديسمبر - ١ يناير', 'assets/images/summer_1.jpg', 2, 13, 2),
+  Mynajom('الشولة', '٢ - ١٤ يناير', 'assets/images/summer_1.jpg', 2, 13, 3),
+  Mynajom('النعائم', ' ١٥ - ٢٧ يناير', 'assets/images/summer_1.jpg', 2, 13, 4),
+  Mynajom(
+      'البلدة', '٢٨ يناير - ٩ فبراير', 'assets/images/summer_1.jpg', 2, 13, 5),
+  Mynajom(
+      'سعد الذابح', '١٠ - ٢٢ فبراير', 'assets/images/summer_1.jpg', 2, 13, 6),
+  Mynajom(
+      'سعد بلع', '٢٣ فبراير - ٧ مارس', 'assets/images/summer_1.jpg', 2, 13, 7),
+  Mynajom('سعد السعود', '٨ - ٢٠ مارس - آذار', 'assets/images/summer_1.jpg', 4,
+      13, 8),
+  Mynajom('سعد الأخبية', '21 مارس إلى 2 إبريل', 'assets/images/summer_1.jpg', 4,
+      13, 9),
+  Mynajom('المقدم', '3/4 إبريل  إلى 15  أبريل', 'assets/images/summer_1.jpg', 4,
+      13, 10),
+  Mynajom(
+      'المؤخر', '( ١٦ - ٢٨ ) أبريل', 'assets/images/summer_1.jpg', 4, 13, 11),
+  Mynajom('الرشاء', '29 ابرايل إلى 11 مايو', 'assets/images/summer_1.jpg', 4,
+      13, 12),
+  Mynajom('الشرطين', '‪ ١٢-٢٤ مايو', 'assets/images/summer_1.jpg', 4, 13, 13),
+  Mynajom(
+      'البطين', '٢٥ مايو - ٦ يونيو ', 'assets/images/summer_1.jpg', 4, 13, 14),
+  Mynajom('الثريا', ' ‪٧ يونيو - ١٩ يونيو ', 'assets/images/summer_1.jpg', 1,
+      13, 15),
+  Mynajom('الدبران', ' 20 يونيو إلى 2 يوليو', 'assets/images/summer_1.jpg', 1,
+      13, 16),
+  Mynajom('الهقعة', ' ‪٣ - ١٥ يوليو ', 'assets/images/summer_1.jpg', 1, 13, 17),
+  Mynajom('الهنعة', '16 - 28 يوليو', 'assets/images/summer_1.jpg', 1, 13, 18),
+  Mynajom('الذراع', '29 يوليو - ١٠ أغسطس  ', 'assets/images/summer_1.jpg', 1,
+      13, 19),
+  Mynajom(
+      'النثرة', '( ‪١١ - ٢٣ أغسطس )', 'assets/images/summer_1.jpg', 1, 13, 20),
+  Mynajom('الطرفة', ' ( ٢٤ أغسطس - ٥ سبتمبر )', 'assets/images/summer_1.jpg', 1,
+      13, 21),
+  Mynajom(
+      'الجبهة', ' ( ‪٦ - ١٩ سبتمبر )', 'assets/images/summer_1.jpg', 3, 13, 22),
+  Mynajom(
+      'الزبرة', ' ( ‪٢٢ - ٢ أكتوبر )', 'assets/images/summer_1.jpg', 3, 13, 23),
+  Mynajom(
+      'الصرفة', 'من 3 إلى ‪١٥ أكتوبر', 'assets/images/summer_1.jpg', 3, 13, 24),
+  Mynajom(
+      'العواء', '( ١٦ - ٢٨ أكتوبر )', 'assets/images/summer_1.jpg', 3, 13, 25),
+  Mynajom('السماك', '( ٢٩ أكتوبر - ١٠ نوفمبر )', 'assets/images/summer_1.jpg',
+      3, 13, 26),
+  Mynajom(
+      'الغفر', '( 11 - 23 نوفمبر )', 'assets/images/summer_1.jpg', 3, 13, 27),
+  Mynajom('الزبانا', '٢٤ نوفمبر - ٦ ديسمبر', 'assets/images/summer_1.jpg', 3,
+      13, 28),
 ];
 final najom_Desc = [
   Desc_najom(1,

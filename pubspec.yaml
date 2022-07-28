@@ -55,8 +55,10 @@ dependencies:
   hijri: ^3.0.0
   syncfusion_flutter_datepicker: ^20.2.39
   dio:
-
+  shared_preferences: 
+  internet_connection_checker: ^0.0.1+4
   flutter_localizations:
+
     sdk: flutter
 
 dev_dependencies:

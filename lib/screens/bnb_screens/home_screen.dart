@@ -12,6 +12,7 @@ import 'package:new_moon_app/items/date_item.dart';
 import 'package:new_moon_app/items/home_screen_item.dart';
 import 'package:new_moon_app/screens/drawer_screen/admin_screen.dart';
 import 'package:new_moon_app/screens/drawer_screen/lock_admin_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../items/HomeScreenItemfosool.dart';
 import '../../items/HomeScreenItem_ekteran.dart';
@@ -24,6 +25,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  Future<String> getText() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.get('hometype');
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getText();
+  }
+
   @override
   Widget build(BuildContext context) {
     var now = DateTime.now();
@@ -126,48 +140,62 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 30.h,
               ),
 
-
-
-
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 10),
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Container(
                   alignment: Alignment.center,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
-                   border: Border.all(width: 1 , color: Colors.grey),
-                   // color: item,
+                    border: Border.all(width: 1, color: Colors.grey),
+                    // color: item,
                   ),
-
-                  child:  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      'يرصد بسماء الوطن العربي قبل شروق الشمس، الثلاثاء، هلال القمر قرب "عنقود نجوم الثريا" الذي يعرف أيضاً بتسمية "الشقيقات السبع"، بسبب ألمع سبعة نجوم في هذا العنقود.',
+                  child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: FutureBuilder<String>(
+                        future: getText(), // async work
+                        builder: (BuildContext context,
+                            AsyncSnapshot<String> snapshot) {
+                          switch (snapshot.connectionState) {
+                            case ConnectionState.waiting:
+                              return Text('Loading....');
+                            default:
+                              if (snapshot.hasError)
+                                return Text('Error: ${snapshot.error}');
+                              else
+                                return Text(
+                                  ' ${snapshot.data}',
+                                  style: TextStyle(
+                                    height: 1.5,
+                                    color: Colors.white70,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12.sp,
+                                    wordSpacing: 2,
+                                    fontFamily: "almarai",
+                                  ),
+                                );
+                          }
+                        },
+                      )
+                      /*         Text(
+                      '${getText.toString()}',
                       textAlign: TextAlign.right,
                       style: TextStyle(
                         height: 1.5,
-                          color: Colors.white70,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 12.sp,
-                          wordSpacing: 2,
-                          fontFamily: "almarai",
+                        color: Colors.white70,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 12.sp,
+                        wordSpacing: 2,
+                        fontFamily: "almarai",
                       ),
-                    ),
-                  ),
+                    ),*/
+                      ),
                 ),
               ),
-
-
 
               SizedBox(
                 height: 10.h,
               ),
-
-
-
-
-
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -184,20 +212,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-
-
-
-
-
-
                         Text(
                           "تاريخ اليوم الميلادي",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.sp,
                             fontFamily: "almarai",
-
                           ),
                         ),
                         SizedBox(
@@ -210,7 +231,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontWeight: FontWeight.bold,
                             fontSize: 18.sp,
                             fontFamily: "almarai",
-
                           ),
                         ),
                       ],
@@ -219,13 +239,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-
-
               SizedBox(
                 height: 10.h,
               ),
-
-
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -236,7 +252,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(10.r),
                     color: item,
                   ),
-
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
@@ -248,10 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 16.sp,
-                              fontFamily: "almarai"
-
-
-                          ),
+                              fontFamily: "almarai"),
                         ),
                         SizedBox(
                           height: 10.h,
@@ -259,11 +271,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           '${_today.toFormat("MMMM dd yyyy")}',
                           style: TextStyle(
-                            color: Colors.white70,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.sp,
-                            fontFamily: "almarai"
-                          ),
+                              color: Colors.white70,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.sp,
+                              fontFamily: "almarai"),
                         ),
                       ],
                     ),
@@ -271,15 +282,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-
-
-
               SizedBox(
                 height: 30.h,
               ),
 
               current_fasl(),
-
 
               SizedBox(
                 height: 20.h,
@@ -385,29 +392,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                       children: [
-                        Container(width: 150.w, height: 280,
-                            child: HomeScreenItemCalender(),),
-
-
                         Container(
-                            width: 150.w, height: 280,
+                          width: 150.w,
+                          height: 280,
+                          child: HomeScreenItemCalender(),
+                        ),
+                        Container(
+                            width: 150.w,
+                            height: 280,
                             child: HomeScreenItemFosool()),
                       ],
                     ),
                   ),
-
                   Container(
-                      width: 150.w, height: 280,
+                      width: 150.w,
+                      height: 280,
                       child: HomeScreenItemEkteran()),
                 ],
               ),
-
-
-
-
-
 
               SizedBox(
                 height: 20.h,

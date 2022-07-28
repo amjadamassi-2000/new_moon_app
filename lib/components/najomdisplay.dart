@@ -8,8 +8,9 @@ import 'package:new_moon_app/screens/najom.dart';
 
 class NajomGrid extends StatefulWidget {
   final id;
+  final name;
 
-  NajomGrid(this.id);
+  NajomGrid(this.id, this.name);
 
   @override
   State<NajomGrid> createState() => _NajomGridState();
@@ -41,7 +42,7 @@ class _NajomGridState extends State<NajomGrid> {
           elevation: 0.0,
           centerTitle: true,
           title: Text(
-            "نجوم فصل الشتاء",
+            "نجوم فصل ${widget.name}",
             style: TextStyle(
               color: Colors.white,
               fontSize: 16.sp,
@@ -52,16 +53,14 @@ class _NajomGridState extends State<NajomGrid> {
         ),
         backgroundColor: test2,
 
-
         body: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-
-            SizedBox(height: 50,),
-
-
+            SizedBox(
+              height: 50,
+            ),
             Text(
-              "يمكث كُل نجم فترة زمنية تُقدر بثلاثة عشر يوم",
+              " يمكث كُل نجم فترة زمنية تُقدر بثلاثة عشر يوم عدا الجبهة اربعة عشر يوماً",
               style: TextStyle(
                 color: Colors.white60,
                 fontSize: 15.sp,
@@ -69,30 +68,24 @@ class _NajomGridState extends State<NajomGrid> {
                 fontFamily: "almarai",
               ),
             ),
-
-            SizedBox(height: 50,),
-
-
-
-
-
-
-
+            SizedBox(
+              height: 50,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Expanded(
                 child: GridView.builder(
-                   shrinkWrap: true,
-                   physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
                     gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       childAspectRatio: 1,
                       crossAxisCount: 3,
                       mainAxisSpacing: 20,
                       crossAxisSpacing: 15,
                     ),
                     // number of items in your list
-                    itemCount:  mynajom.length,
+                    itemCount: mynajom.length,
                     itemBuilder: (context, index) {
                       return StarItem(mynajom[index]);
                     }),
@@ -100,10 +93,6 @@ class _NajomGridState extends State<NajomGrid> {
             ),
           ],
         ),
-
-
-
-
 
         // ListView.builder(
         //     itemCount: mynajom.length,

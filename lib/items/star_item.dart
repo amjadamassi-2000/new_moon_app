@@ -47,7 +47,7 @@ class _StarItemState extends State<StarItem> {
               height: 10,
             ),
             Text(
-              "18 - أكتوبر",
+              "${widget.mynajom.date}",
               style: TextStyle(
                 color: kLightAccent,
                 fontSize: 12.sp,

@@ -70,8 +70,17 @@ class _AdminScreenState extends State<AdminScreen> {
                 TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: 3,
+                  onChanged: (value) {
+                    final url =
+                        'https://moonapp-f63aa-default-rtdb.firebaseio.com/product/-N7fDNmSLr9dbubGmZiP.json';
+                    final uri = Uri.parse(url);
+                    http.patch(uri,
+                        body: json.encode({
+                          'title': '${value.toString()}',
+                        }));
+                  },
                   decoration: InputDecoration(
-                    hintText: "اكتب ملاحظة في التقويم ",
+                    hintText: "اكتب ملاحظة في الأقترانات  ",
                     contentPadding: EdgeInsets.all(12),
                     isDense: true,
                     hintStyle: TextStyle(
@@ -89,10 +98,19 @@ class _AdminScreenState extends State<AdminScreen> {
                 ),
                 SizedBox(height: 20.h),
                 TextField(
+                  onChanged: (value) {
+                    final url =
+                        'https://moonapp-f63aa-default-rtdb.firebaseio.com/product/-N7wdvinqa-JRt2hkXUa.json';
+                    final uri = Uri.parse(url);
+                    http.patch(uri,
+                        body: json.encode({
+                          'title': '${value.toString()}',
+                        }));
+                  },
                   keyboardType: TextInputType.multiline,
                   maxLines: 3,
                   decoration: InputDecoration(
-                    hintText: "اكتب ملاحظة في شاشة من نحنw",
+                    hintText: "ضع رابط في القائمة الجانبية",
                     contentPadding: EdgeInsets.all(12),
                     isDense: true,
                     hintStyle: TextStyle(

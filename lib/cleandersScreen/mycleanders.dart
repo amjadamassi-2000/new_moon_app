@@ -6,6 +6,7 @@ import 'package:hijri/hijri_calendar.dart';
 import 'package:new_moon_app/cleandersScreen/hijri.dart';
 import 'package:new_moon_app/items/calenderidtem.dart';
 import 'package:new_moon_app/items/hijri.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../components/const.dart';
 
@@ -51,14 +52,10 @@ class _CleandersState extends State<Cleanders> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20.r)),
-                  child: TableBasicsExample()),
-
-
+                  child: SfDateRangePicker()),
               SizedBox(
                 height: 20.h,
               ),
-
-
               Container(
                   margin: EdgeInsets.symmetric(horizontal: 20.w),
                   height: 250.h,

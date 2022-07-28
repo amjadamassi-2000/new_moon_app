@@ -22,18 +22,18 @@ class _LoadingScreenState extends State<LoadingScreen> {
             var cubit = GlobalCubit.get(context);
 
             return new AlertDialog(
-              title: new Text('Are you sure?'),
-              content: new Text('Do you want to exit an App'),
+              title: new Text('هل انت متأكد'),
+              content: new Text('هل تريد الرجوع للشاشة السابقة'),
               actions: <Widget>[
                 new FlatButton(
                   onPressed: () => Navigator.of(context).pop(false),
-                  child: new Text('No'),
+                  child: new Text('لا'),
                 ),
                 new FlatButton(
                   onPressed: () {
                     cubit.currentIndex = 0;
                   },
-                  child: new Text('Yes'),
+                  child: new Text('نعم'),
                 ),
               ],
             );
@@ -70,14 +70,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
       showDialog(
         context: context,
         builder: (context) => new AlertDialog(
-          title: new Text(' No Internet '),
-          content: new Text(
-              'This app requires Internet connection. Do you want to continue?'),
+          title: new Text(' لا يوجد انترنت '),
+          content: new Text('تحتاج إلى انترنت للإستمرار'),
           actions: <Widget>[
             new FlatButton(
               onPressed: () =>
                   SystemChannels.platform.invokeMethod('SystemNavigator.pop'),
-              child: new Text('cancel'),
+              child: new Text('إلغاء'),
             ),
             new FlatButton(
               onPressed: () async {
@@ -87,7 +86,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
                 Navigator.pop(context);
                 getUserLocationData();
               },
-              child: new Text('ok'),
+              child: new Text('تم'),
             ),
           ],
         ),
