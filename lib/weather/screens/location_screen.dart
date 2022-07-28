@@ -58,7 +58,7 @@ class _LocationScreenState extends State<LocationScreen> {
 
             return new AlertDialog(
               title: new Text('هل انت متأكد '),
-              content: new Text('هل تريد اغلاق التطبيق'),
+              content: new Text('هل تريد الرجوع للواجهة الرئيسية'),
               actions: <Widget>[
                 new FlatButton(
                   onPressed: () => Navigator.of(context).pop(false),
