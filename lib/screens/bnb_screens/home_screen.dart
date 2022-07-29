@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 0.0,
           centerTitle: true,
           title: Text(
-            "منازل الشمس و القمر",
+            "التقويم الشامل",
             style: TextStyle(
               color: Colors.white,
               fontSize: 18.sp,
