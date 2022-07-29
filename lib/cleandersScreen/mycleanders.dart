@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:new_moon_app/cleandersScreen/hijri.dart';
 import 'package:new_moon_app/items/calenderidtem.dart';
+import 'package:new_moon_app/items/current_ecteran.dart';
 import 'package:new_moon_app/items/hijri.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
@@ -47,8 +48,46 @@ class _CleandersState extends State<Cleanders> {
               SizedBox(
                 height: 20.h,
               ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15)
+                    .add(EdgeInsets.only(bottom: 10)),
+                child: Container(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          color: Colors.grey,
+                          thickness: 1,
+                          indent: 20,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Text(
+                          " الإقتران الحالي",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "almarai",
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          color: Colors.grey,
+                          thickness: 1,
+                          endIndent: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Current_ecteran(),
               Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20.w),
+                  margin:
+                      EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20.r)),

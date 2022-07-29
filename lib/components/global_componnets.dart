@@ -26,11 +26,11 @@ import 'package:flutter_svg/svg.dart';
 import 'const.dart';
 
 Widget svgImage(
-    icon, {
-        Color color,
-      double size,
-      double width,
-    }) =>
+  icon, {
+  Color color,
+  double size,
+  double width,
+}) =>
     SvgPicture.asset(
       'assets/icons/$icon.svg',
       color: color,
@@ -255,8 +255,8 @@ Future To(BuildContext context, Widget widget) async {
 //
 //
 //
-  Widget myButton(String title ,  fun) =>
-           //
+Widget myButton(String title, fun) =>
+    //
     InkWell(
       onTap: fun,
       child: Container(
@@ -343,27 +343,30 @@ Future To(BuildContext context, Widget widget) async {
 //
 //
 
-
-Widget myRowItem(String title , String subTitle) =>
-    Padding(
-      padding: const EdgeInsets.only(bottom: 10  , right: 20 ,),
+Widget myRowItem(String title, String subTitle) => Padding(
+      padding: const EdgeInsets.only(
+        bottom: 10,
+        right: 20,
+      ),
       child: Row(
         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
             style: TextStyle(
-              color: kDarkPlaceholderText,
+              color: Colors.white,
               fontSize: 16.sp,
               fontWeight: FontWeight.bold,
               fontFamily: "almarai",
             ),
           ),
-          SizedBox(width: 20,),
+          SizedBox(
+            width: 20,
+          ),
           Text(
             subTitle,
             style: TextStyle(
-              color: Colors.white60,
+              color: Colors.black,
               fontSize: 16.sp,
               fontWeight: FontWeight.bold,
               fontFamily: "almarai",

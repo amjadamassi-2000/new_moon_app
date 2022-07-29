@@ -86,7 +86,109 @@ class _EcteranScreenState extends State<EcteranScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 30, bottom: 10),
+                  padding: EdgeInsets.only(top: 30, bottom: 10, right: 30),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            height: 15.h,
+                            width: 15.w,
+                            decoration:
+                                BoxDecoration(color: Colors.blue.shade400),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            ':',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            'إقترانات فصل الشتاء',
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 15.h,
+                            width: 15.w,
+                            decoration:
+                                BoxDecoration(color: Colors.green.shade400),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            ':',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            'إقترانات فصل الربيع',
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 15.h,
+                            width: 15.w,
+                            decoration:
+                                BoxDecoration(color: Colors.yellow.shade400),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            ':',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            'إقترانات فصل الصيف',
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 15.h,
+                            width: 15.w,
+                            decoration:
+                                BoxDecoration(color: Colors.brown.shade400),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            ':',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            'إقترانات فصل الخريف',
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                    ],
+                  )),
+              Padding(
+                padding: EdgeInsets.only(top: 30, bottom: 10),
                 child: ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
